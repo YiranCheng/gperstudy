@@ -17,15 +17,15 @@ public class SerializableTest {
         try {
             FileOutputStream fos = new FileOutputStream("output.obj");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(enumSingleton);
+            oos.writeObject(innerClassLazySingleton);
             oos.flush();
             oos.close();
 
             FileInputStream fis = new FileInputStream("output.obj");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            enumSingleton1 = (EnumSingleton) ois.readObject();
-            System.out.println(enumSingleton);
-            System.out.println(enumSingleton1);
+            innerClassLazySingleton1 = (InnerClassLazySingleton) ois.readObject();
+            System.out.println(innerClassLazySingleton);
+            System.out.println(innerClassLazySingleton1);
         } catch (Exception e) {
             e.printStackTrace();
         }

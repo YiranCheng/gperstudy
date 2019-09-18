@@ -18,4 +18,8 @@ public class InnerClassLazySingleton implements Serializable {
     private static class InnerClass{
         static final InnerClassLazySingleton SINGLETON = new InnerClassLazySingleton();
     }
+
+    private Object readResolve(){
+        return InnerClass.SINGLETON;
+    }
 }
